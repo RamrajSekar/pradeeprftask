@@ -1,2 +1,5 @@
 # Ignore results folder
 results/
+
+# Ignore driver folder
+drivers/
