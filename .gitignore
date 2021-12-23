@@ -1,5 +1,5 @@
 # Ignore results folder
 results/
-
+scripts/__pycache__/
 # Ignore driver folder
 drivers/
