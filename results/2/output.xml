@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.4 on win32)" generated="20211223 17:28:31.499" rpa="false" schemaversion="2">
+<suite id="s1" name="Tests" source="F:\Projects\rf_DataDriven\tests">
+<suite id="s1-s1" name="userLogin" source="F:\Projects\rf_DataDriven\tests\userLogin">
+<suite id="s1-s1-s1" name="loginTest" source="F:\Projects\rf_DataDriven\tests\userLogin\loginTest.robot">
+<kw name="Set Variables" library="propertyFile" type="SETUP">
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${DEF_WAIT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20211223 17:28:32.031" endtime="20211223 17:28:32.032"/>
+</kw>
+<kw name="Read Exl Data" library="utilityScripts">
+<var>${sheet}</var>
+<var>${workBook}</var>
+<arg>${data_file}</arg>
+<arg>${data_sheet}</arg>
+<msg timestamp="20211223 17:28:32.040" level="INFO">${sheet} = &lt;Worksheet "loginTest"&gt;</msg>
+<msg timestamp="20211223 17:28:32.040" level="INFO">${workBook} = &lt;openpyxl.workbook.workbook.Workbook object at 0x000002877F3D4FD0&gt;</msg>
+<status status="PASS" starttime="20211223 17:28:32.032" endtime="20211223 17:28:32.040"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${sheet}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211223 17:28:32.040" level="INFO">${sheet} = &lt;Worksheet "loginTest"&gt;</msg>
+<status status="PASS" starttime="20211223 17:28:32.040" endtime="20211223 17:28:32.040"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${workBook}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20211223 17:28:32.040" level="INFO">${workBook} = &lt;openpyxl.workbook.workbook.Workbook object at 0x000002877F3D4FD0&gt;</msg>
+<status status="PASS" starttime="20211223 17:28:32.040" endtime="20211223 17:28:32.040"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:32.031" endtime="20211223 17:28:32.041"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Login WIth Valid User">
+<kw name="Launch Browser" library="propertyFile">
+<arg>browser=${BROWSER}</arg>
+<kw name="Set Browser Driver Path" library="propertyFile">
+<kw name="Get Chromedriver Path" library="utilityScripts">
+<var>${driverPath}</var>
+<msg timestamp="20211223 17:28:32.042" level="INFO">
+</msg>
+<msg timestamp="20211223 17:28:32.042" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20211223 17:28:32.066" level="INFO">Current google-chrome version is 96.0.4664</msg>
+<msg timestamp="20211223 17:28:32.066" level="INFO">Get LATEST chromedriver version for 96.0.4664 google-chrome</msg>
+<msg timestamp="20211223 17:28:32.293" level="INFO">Driver [C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe] found in cache</msg>
+<msg timestamp="20211223 17:28:32.293" level="INFO">====== WebDriver manager ======
+Current google-chrome version is 96.0.4664
+Get LATEST chromedriver version for 96.0.4664 google-chrome
+Driver [C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe] found in cache</msg>
+<msg timestamp="20211223 17:28:32.294" level="INFO">${driverPath} = C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe</msg>
+<status status="PASS" starttime="20211223 17:28:32.042" endtime="20211223 17:28:32.294"/>
+</kw>
+<kw name="Copy File" library="OperatingSystem">
+<arg>${driverPath}</arg>
+<arg>${EXECDIR}\\drivers</arg>
+<doc>Copies the source file into the destination.</doc>
+<msg timestamp="20211223 17:28:32.310" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe"&gt;C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe&lt;/a&gt;' to '&lt;a href="file://F:\Projects\rf_DataDriven\drivers\chromedriver.exe"&gt;F:\Projects\rf_DataDriven\drivers\chromedriver.exe&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20211223 17:28:32.294" endtime="20211223 17:28:32.310"/>
+</kw>
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<arg>Path</arg>
+<arg>${EXECDIR}\\drivers</arg>
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<msg timestamp="20211223 17:28:32.311" level="INFO">Environment variable 'Path' set to value 'C:\Program Files\Common Files\Oracle\Java\javapath;D:\Softwares\VMwareWorkStation\bin\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;D:\Go\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\PuTTY\;C:\Users\ram\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\ram\AppData\Local\Programs\Python\Python39\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\ram\AppData\Local\Microsoft\WindowsApps;C:\Users\ram\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ram\go\bin;C:\Program Files\Salesforce CLI\bin;C:\Users\ram\AppData\Roaming\npm;;F:\Projects\rf_DataDriven\drivers'.</msg>
+<status status="PASS" starttime="20211223 17:28:32.310" endtime="20211223 17:28:32.311"/>
+</kw>
+<kw name="Get Environment Variable" library="OperatingSystem">
+<var>${a}</var>
+<arg>Path</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<msg timestamp="20211223 17:28:32.312" level="INFO">${a} = C:\Program Files\Common Files\Oracle\Java\javapath;D:\Softwares\VMwareWorkStation\bin\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system...</msg>
+<status status="PASS" starttime="20211223 17:28:32.311" endtime="20211223 17:28:32.312"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${a}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211223 17:28:32.312" level="INFO">C:\Program Files\Common Files\Oracle\Java\javapath;D:\Softwares\VMwareWorkStation\bin\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;D:\Go\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\PuTTY\;C:\Users\ram\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\ram\AppData\Local\Programs\Python\Python39\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\ram\AppData\Local\Microsoft\WindowsApps;C:\Users\ram\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ram\go\bin;C:\Program Files\Salesforce CLI\bin;C:\Users\ram\AppData\Roaming\npm;;F:\Projects\rf_DataDriven\drivers</msg>
+<status status="PASS" starttime="20211223 17:28:32.312" endtime="20211223 17:28:32.312"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:32.042" endtime="20211223 17:28:32.313"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211223 17:28:32.314" level="INFO">Opening browser 'chrome' to base url 'http://demo.guru99.com/test/newtours/'.</msg>
+<status status="PASS" starttime="20211223 17:28:32.313" endtime="20211223 17:28:36.948"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211223 17:28:36.949" endtime="20211223 17:28:37.070"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:32.041" endtime="20211223 17:28:37.071"/>
+</kw>
+<kw name="Get Test Case Details From Excel" library="propertyFile">
+<var>${uname}</var>
+<var>${pwd}</var>
+<var>${expMsg}</var>
+<arg>testName=TC1</arg>
+<kw name="Get Exl Row Count" library="utilityScripts">
+<var>${row_count}</var>
+<arg>${sheet}</arg>
+<msg timestamp="20211223 17:28:37.072" level="INFO">${row_count} = 3</msg>
+<status status="PASS" starttime="20211223 17:28:37.072" endtime="20211223 17:28:37.072"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${row_count}</var>
+<arg>${row_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211223 17:28:37.072" level="INFO">${row_count} = 4</msg>
+<status status="PASS" starttime="20211223 17:28:37.072" endtime="20211223 17:28:37.072"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${row}</var>
+<value>2</value>
+<value>${row_count}</value>
+<iter>
+<var name="${row}">2</var>
+<kw name="Get Row Val" library="utilityScripts">
+<var>${result}</var>
+<arg>${sheet}</arg>
+<arg>${row}</arg>
+<msg timestamp="20211223 17:28:37.073" level="INFO">TC1
+jojo
+bean
+Login Successfully
+PASS</msg>
+<msg timestamp="20211223 17:28:37.073" level="INFO">${result} = {'TC_Name': 'TC1', 'username': 'jojo', 'password': 'bean', 'Validation_Message': 'Login Successfully', 'order_number': 'PASS'}</msg>
+<status status="PASS" starttime="20211223 17:28:37.073" endtime="20211223 17:28:37.073"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${testCase}</var>
+<arg>${result}</arg>
+<arg>TC_Name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:28:37.073" level="INFO">${testCase} = TC1</msg>
+<status status="PASS" starttime="20211223 17:28:37.073" endtime="20211223 17:28:37.073"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${userName}</var>
+<arg>${result}</arg>
+<arg>username</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:28:37.073" level="INFO">${userName} = jojo</msg>
+<status status="PASS" starttime="20211223 17:28:37.073" endtime="20211223 17:28:37.073"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${password}</var>
+<arg>${result}</arg>
+<arg>password</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:28:37.074" level="INFO">${password} = bean</msg>
+<status status="PASS" starttime="20211223 17:28:37.074" endtime="20211223 17:28:37.074"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${expMsg}</var>
+<arg>${result}</arg>
+<arg>Validation_Message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:28:37.074" level="INFO">${expMsg} = Login Successfully</msg>
+<status status="PASS" starttime="20211223 17:28:37.074" endtime="20211223 17:28:37.074"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${testCase}'=='${testName}'</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<msg timestamp="20211223 17:28:37.074" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20211223 17:28:37.074" endtime="20211223 17:28:37.075"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:37.072" endtime="20211223 17:28:37.075"/>
+</iter>
+<status status="PASS" starttime="20211223 17:28:37.072" endtime="20211223 17:28:37.075"/>
+</for>
+<msg timestamp="20211223 17:28:37.075" level="INFO">${uname} = jojo</msg>
+<msg timestamp="20211223 17:28:37.075" level="INFO">${pwd} = bean</msg>
+<msg timestamp="20211223 17:28:37.075" level="INFO">${expMsg} = Login Successfully</msg>
+<status status="PASS" starttime="20211223 17:28:37.071" endtime="20211223 17:28:37.075"/>
+</kw>
+<kw name="Login To Application" library="login_page">
+<arg>${uname}</arg>
+<arg>${pwd}</arg>
+<kw name="Wait Until Location Contains" library="SeleniumLibrary">
+<arg>newtours</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" starttime="20211223 17:28:37.076" endtime="20211223 17:28:37.079"/>
+</kw>
+<kw name="Enter Text In A Field" library="common_imports">
+<arg>${lpLocator.inputField}</arg>
+<arg>User Name:</arg>
+<arg>${userName}</arg>
+<kw name="Replace String" library="String">
+<var>${locator}</var>
+<arg>${locator}</arg>
+<arg>LABLE-NAME</arg>
+<arg>${fieldName}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20211223 17:28:37.080" level="INFO">${locator} = //font[contains(normalize-space(),'User Name:')]//following::input[1]</msg>
+<status status="PASS" starttime="20211223 17:28:37.080" endtime="20211223 17:28:37.080"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:28:37.081" endtime="20211223 17:28:37.104"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${inputText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211223 17:28:37.105" level="INFO">Typing text 'jojo' into text field '//font[contains(normalize-space(),'User Name:')]//following::input[1]'.</msg>
+<status status="PASS" starttime="20211223 17:28:37.105" endtime="20211223 17:28:37.205"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:37.079" endtime="20211223 17:28:37.205"/>
+</kw>
+<kw name="Enter Text In A Field" library="common_imports">
+<arg>${lpLocator.inputField}</arg>
+<arg>Password:</arg>
+<arg>${password}</arg>
+<kw name="Replace String" library="String">
+<var>${locator}</var>
+<arg>${locator}</arg>
+<arg>LABLE-NAME</arg>
+<arg>${fieldName}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20211223 17:28:37.206" level="INFO">${locator} = //font[contains(normalize-space(),'Password:')]//following::input[1]</msg>
+<status status="PASS" starttime="20211223 17:28:37.206" endtime="20211223 17:28:37.206"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:28:37.206" endtime="20211223 17:28:37.232"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${inputText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211223 17:28:37.233" level="INFO">Typing text 'bean' into text field '//font[contains(normalize-space(),'Password:')]//following::input[1]'.</msg>
+<status status="PASS" starttime="20211223 17:28:37.232" endtime="20211223 17:28:37.306"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:37.205" endtime="20211223 17:28:37.306"/>
+</kw>
+<kw name="Click Submit Button" library="login_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${lpLocator.submitBtn}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:28:37.307" endtime="20211223 17:28:37.323"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${lpLocator.submitBtn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211223 17:28:37.323" level="INFO">Clicking element '//input[@value='Submit']'.</msg>
+<status status="PASS" starttime="20211223 17:28:37.323" endtime="20211223 17:28:40.716"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:37.306" endtime="20211223 17:28:40.716"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:37.076" endtime="20211223 17:28:40.716"/>
+</kw>
+<kw name="Verify Login Is Success" library="login_page">
+<arg>expMsg=${expMsg}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${invalidLogMsg}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${lpLocator.errorMsg}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${lpLocator.errorMsg}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20211223 17:29:11.073" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20211223 17:29:10.918" endtime="20211223 17:29:11.074"/>
+</kw>
+<msg timestamp="20211223 17:29:11.078" level="FAIL">Element '//span[contains(text(),'Enter your userName and password correct')]' not visible after 30 seconds.</msg>
+<status status="FAIL" starttime="20211223 17:28:40.717" endtime="20211223 17:29:11.078"/>
+</kw>
+<msg timestamp="20211223 17:29:11.078" level="INFO">${invalidLogMsg} = False</msg>
+<status status="PASS" starttime="20211223 17:28:40.717" endtime="20211223 17:29:11.079"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${invalidLogMsg}==False</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${lpLocator.welcomeMsg}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${lpLocator.welcomeMsg}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:29:11.080" endtime="20211223 17:29:11.115"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:11.079" endtime="20211223 17:29:11.115"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${actValue}</var>
+<arg>${invalidLogMsg}==True</arg>
+<arg>Get Text</arg>
+<arg>${lpLocator.errorMsg}</arg>
+<arg>ELSE</arg>
+<arg>Get Text</arg>
+<arg>${lpLocator.welcomeMsg}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>${lpLocator.welcomeMsg}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20211223 17:29:11.116" endtime="20211223 17:29:11.140"/>
+</kw>
+<msg timestamp="20211223 17:29:11.140" level="INFO">${actValue} = Login Successfully</msg>
+<status status="PASS" starttime="20211223 17:29:11.115" endtime="20211223 17:29:11.140"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expMsg}</arg>
+<arg>${actValue}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20211223 17:29:11.141" endtime="20211223 17:29:11.141"/>
+</kw>
+<status status="PASS" starttime="20211223 17:28:40.716" endtime="20211223 17:29:11.142"/>
+</kw>
+<kw name="Update Order Number In Excel" library="propertyFile" type="TEARDOWN">
+<arg>TC1</arg>
+<arg>${TEST STATUS}</arg>
+<kw name="Common Teardown" library="propertyFile">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211223 17:29:11.145" endtime="20211223 17:29:13.380"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:11.144" endtime="20211223 17:29:13.380"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${dataInput}</var>
+<arg>'${result}'=='PASS'</arg>
+<arg>Set Variable</arg>
+<arg>PASS</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>FAIL</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>PASS</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20211223 17:29:13.382" endtime="20211223 17:29:13.382"/>
+</kw>
+<msg timestamp="20211223 17:29:13.382" level="INFO">${dataInput} = PASS</msg>
+<status status="PASS" starttime="20211223 17:29:13.381" endtime="20211223 17:29:13.382"/>
+</kw>
+<kw name="Update Exl Data" library="utilityScripts">
+<arg>sheet=${sheet}</arg>
+<arg>workbook=${workBook}</arg>
+<arg>path=${data_file}</arg>
+<arg>data=${dataInput}</arg>
+<arg>colNo=5</arg>
+<arg>testCase=${testCase}</arg>
+<status status="PASS" starttime="20211223 17:29:13.383" endtime="20211223 17:29:13.403"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:11.143" endtime="20211223 17:29:13.403"/>
+</kw>
+<tag>1</tag>
+<status status="PASS" starttime="20211223 17:28:32.041" endtime="20211223 17:29:13.404"/>
+</test>
+<test id="s1-s1-s1-t2" name="Login WIth Invalid User">
+<kw name="Launch Browser" library="propertyFile">
+<arg>browser=${BROWSER}</arg>
+<kw name="Set Browser Driver Path" library="propertyFile">
+<kw name="Get Chromedriver Path" library="utilityScripts">
+<var>${driverPath}</var>
+<msg timestamp="20211223 17:29:13.411" level="INFO">
+</msg>
+<msg timestamp="20211223 17:29:13.411" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20211223 17:29:13.436" level="INFO">Current google-chrome version is 96.0.4664</msg>
+<msg timestamp="20211223 17:29:13.436" level="INFO">Get LATEST chromedriver version for 96.0.4664 google-chrome</msg>
+<msg timestamp="20211223 17:29:13.629" level="INFO">Driver [C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe] found in cache</msg>
+<msg timestamp="20211223 17:29:13.630" level="INFO">${driverPath} = C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe</msg>
+<status status="PASS" starttime="20211223 17:29:13.410" endtime="20211223 17:29:13.630"/>
+</kw>
+<kw name="Copy File" library="OperatingSystem">
+<arg>${driverPath}</arg>
+<arg>${EXECDIR}\\drivers</arg>
+<doc>Copies the source file into the destination.</doc>
+<msg timestamp="20211223 17:29:13.654" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe"&gt;C:\Users\ram\.wdm\drivers\chromedriver\win32\96.0.4664.45\chromedriver.exe&lt;/a&gt;' to '&lt;a href="file://F:\Projects\rf_DataDriven\drivers\chromedriver.exe"&gt;F:\Projects\rf_DataDriven\drivers\chromedriver.exe&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20211223 17:29:13.631" endtime="20211223 17:29:13.655"/>
+</kw>
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<arg>Path</arg>
+<arg>${EXECDIR}\\drivers</arg>
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<msg timestamp="20211223 17:29:13.656" level="INFO">Environment variable 'Path' set to value 'C:\Program Files\Common Files\Oracle\Java\javapath;D:\Softwares\VMwareWorkStation\bin\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;D:\Go\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\PuTTY\;C:\Users\ram\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\ram\AppData\Local\Programs\Python\Python39\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\ram\AppData\Local\Microsoft\WindowsApps;C:\Users\ram\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ram\go\bin;C:\Program Files\Salesforce CLI\bin;C:\Users\ram\AppData\Roaming\npm;;F:\Projects\rf_DataDriven\drivers;F:\Projects\rf_DataDriven\drivers'.</msg>
+<status status="PASS" starttime="20211223 17:29:13.655" endtime="20211223 17:29:13.656"/>
+</kw>
+<kw name="Get Environment Variable" library="OperatingSystem">
+<var>${a}</var>
+<arg>Path</arg>
+<doc>Returns the value of an environment variable with the given name.</doc>
+<msg timestamp="20211223 17:29:13.657" level="INFO">${a} = C:\Program Files\Common Files\Oracle\Java\javapath;D:\Softwares\VMwareWorkStation\bin\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system...</msg>
+<status status="PASS" starttime="20211223 17:29:13.656" endtime="20211223 17:29:13.657"/>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<arg>${a}</arg>
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<msg timestamp="20211223 17:29:13.657" level="INFO">C:\Program Files\Common Files\Oracle\Java\javapath;D:\Softwares\VMwareWorkStation\bin\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;D:\Go\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\PuTTY\;C:\Users\ram\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\ram\AppData\Local\Programs\Python\Python39\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\ram\AppData\Local\Microsoft\WindowsApps;C:\Users\ram\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ram\go\bin;C:\Program Files\Salesforce CLI\bin;C:\Users\ram\AppData\Roaming\npm;;F:\Projects\rf_DataDriven\drivers;F:\Projects\rf_DataDriven\drivers</msg>
+<status status="PASS" starttime="20211223 17:29:13.657" endtime="20211223 17:29:13.658"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:13.410" endtime="20211223 17:29:13.658"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211223 17:29:13.659" level="INFO">Opening browser 'chrome' to base url 'http://demo.guru99.com/test/newtours/'.</msg>
+<status status="PASS" starttime="20211223 17:29:13.658" endtime="20211223 17:29:18.374"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211223 17:29:18.374" endtime="20211223 17:29:18.503"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:13.408" endtime="20211223 17:29:18.503"/>
+</kw>
+<kw name="Get Test Case Details From Excel" library="propertyFile">
+<var>${uname}</var>
+<var>${pwd}</var>
+<var>${expMsg}</var>
+<arg>testName=TC2</arg>
+<kw name="Get Exl Row Count" library="utilityScripts">
+<var>${row_count}</var>
+<arg>${sheet}</arg>
+<msg timestamp="20211223 17:29:18.505" level="INFO">${row_count} = 3</msg>
+<status status="PASS" starttime="20211223 17:29:18.505" endtime="20211223 17:29:18.505"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${row_count}</var>
+<arg>${row_count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211223 17:29:18.506" level="INFO">${row_count} = 4</msg>
+<status status="PASS" starttime="20211223 17:29:18.506" endtime="20211223 17:29:18.506"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${row}</var>
+<value>2</value>
+<value>${row_count}</value>
+<iter>
+<var name="${row}">2</var>
+<kw name="Get Row Val" library="utilityScripts">
+<var>${result}</var>
+<arg>${sheet}</arg>
+<arg>${row}</arg>
+<msg timestamp="20211223 17:29:18.508" level="INFO">TC1
+jojo
+bean
+Login Successfully
+PASS</msg>
+<msg timestamp="20211223 17:29:18.508" level="INFO">${result} = {'TC_Name': 'TC1', 'username': 'jojo', 'password': 'bean', 'Validation_Message': 'Login Successfully', 'order_number': 'PASS'}</msg>
+<status status="PASS" starttime="20211223 17:29:18.507" endtime="20211223 17:29:18.508"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${testCase}</var>
+<arg>${result}</arg>
+<arg>TC_Name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.508" level="INFO">${testCase} = TC1</msg>
+<status status="PASS" starttime="20211223 17:29:18.508" endtime="20211223 17:29:18.508"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${userName}</var>
+<arg>${result}</arg>
+<arg>username</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.509" level="INFO">${userName} = jojo</msg>
+<status status="PASS" starttime="20211223 17:29:18.509" endtime="20211223 17:29:18.509"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${password}</var>
+<arg>${result}</arg>
+<arg>password</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.509" level="INFO">${password} = bean</msg>
+<status status="PASS" starttime="20211223 17:29:18.509" endtime="20211223 17:29:18.509"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${expMsg}</var>
+<arg>${result}</arg>
+<arg>Validation_Message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.510" level="INFO">${expMsg} = Login Successfully</msg>
+<status status="PASS" starttime="20211223 17:29:18.510" endtime="20211223 17:29:18.510"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${testCase}'=='${testName}'</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20211223 17:29:18.510" endtime="20211223 17:29:18.511"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:18.507" endtime="20211223 17:29:18.511"/>
+</iter>
+<iter>
+<var name="${row}">3</var>
+<kw name="Get Row Val" library="utilityScripts">
+<var>${result}</var>
+<arg>${sheet}</arg>
+<arg>${row}</arg>
+<msg timestamp="20211223 17:29:18.511" level="INFO">TC2
+jojo2
+bean2
+Enter your userName and password corrects
+PASS</msg>
+<msg timestamp="20211223 17:29:18.512" level="INFO">${result} = {'TC_Name': 'TC2', 'username': 'jojo2', 'password': 'bean2', 'Validation_Message': 'Enter your userName and password corrects', 'order_number': 'PASS'}</msg>
+<status status="PASS" starttime="20211223 17:29:18.511" endtime="20211223 17:29:18.512"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${testCase}</var>
+<arg>${result}</arg>
+<arg>TC_Name</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.514" level="INFO">${testCase} = TC2</msg>
+<status status="PASS" starttime="20211223 17:29:18.512" endtime="20211223 17:29:18.514"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${userName}</var>
+<arg>${result}</arg>
+<arg>username</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.515" level="INFO">${userName} = jojo2</msg>
+<status status="PASS" starttime="20211223 17:29:18.514" endtime="20211223 17:29:18.515"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${password}</var>
+<arg>${result}</arg>
+<arg>password</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.515" level="INFO">${password} = bean2</msg>
+<status status="PASS" starttime="20211223 17:29:18.515" endtime="20211223 17:29:18.515"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${expMsg}</var>
+<arg>${result}</arg>
+<arg>Validation_Message</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211223 17:29:18.517" level="INFO">${expMsg} = Enter your userName and password corrects</msg>
+<status status="PASS" starttime="20211223 17:29:18.515" endtime="20211223 17:29:18.517"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${testCase}'=='${testName}'</arg>
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<msg timestamp="20211223 17:29:18.518" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20211223 17:29:18.517" endtime="20211223 17:29:18.518"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:18.511" endtime="20211223 17:29:18.518"/>
+</iter>
+<status status="PASS" starttime="20211223 17:29:18.507" endtime="20211223 17:29:18.519"/>
+</for>
+<msg timestamp="20211223 17:29:18.519" level="INFO">${uname} = jojo2</msg>
+<msg timestamp="20211223 17:29:18.519" level="INFO">${pwd} = bean2</msg>
+<msg timestamp="20211223 17:29:18.520" level="INFO">${expMsg} = Enter your userName and password corrects</msg>
+<status status="PASS" starttime="20211223 17:29:18.504" endtime="20211223 17:29:18.520"/>
+</kw>
+<kw name="Login To Application" library="login_page">
+<arg>${uname}</arg>
+<arg>${pwd}</arg>
+<kw name="Wait Until Location Contains" library="SeleniumLibrary">
+<arg>newtours</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" starttime="20211223 17:29:18.521" endtime="20211223 17:29:18.527"/>
+</kw>
+<kw name="Enter Text In A Field" library="common_imports">
+<arg>${lpLocator.inputField}</arg>
+<arg>User Name:</arg>
+<arg>${userName}</arg>
+<kw name="Replace String" library="String">
+<var>${locator}</var>
+<arg>${locator}</arg>
+<arg>LABLE-NAME</arg>
+<arg>${fieldName}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20211223 17:29:18.529" level="INFO">${locator} = //font[contains(normalize-space(),'User Name:')]//following::input[1]</msg>
+<status status="PASS" starttime="20211223 17:29:18.528" endtime="20211223 17:29:18.529"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:29:18.529" endtime="20211223 17:29:18.558"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${inputText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211223 17:29:18.559" level="INFO">Typing text 'jojo2' into text field '//font[contains(normalize-space(),'User Name:')]//following::input[1]'.</msg>
+<status status="PASS" starttime="20211223 17:29:18.558" endtime="20211223 17:29:18.655"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:18.527" endtime="20211223 17:29:18.655"/>
+</kw>
+<kw name="Enter Text In A Field" library="common_imports">
+<arg>${lpLocator.inputField}</arg>
+<arg>Password:</arg>
+<arg>${password}</arg>
+<kw name="Replace String" library="String">
+<var>${locator}</var>
+<arg>${locator}</arg>
+<arg>LABLE-NAME</arg>
+<arg>${fieldName}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20211223 17:29:18.657" level="INFO">${locator} = //font[contains(normalize-space(),'Password:')]//following::input[1]</msg>
+<status status="PASS" starttime="20211223 17:29:18.656" endtime="20211223 17:29:18.657"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:29:18.657" endtime="20211223 17:29:18.702"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${inputText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211223 17:29:18.703" level="INFO">Typing text 'bean2' into text field '//font[contains(normalize-space(),'Password:')]//following::input[1]'.</msg>
+<status status="PASS" starttime="20211223 17:29:18.702" endtime="20211223 17:29:18.812"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:18.655" endtime="20211223 17:29:18.813"/>
+</kw>
+<kw name="Click Submit Button" library="login_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${lpLocator.submitBtn}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:29:18.813" endtime="20211223 17:29:18.832"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${lpLocator.submitBtn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211223 17:29:18.833" level="INFO">Clicking element '//input[@value='Submit']'.</msg>
+<status status="PASS" starttime="20211223 17:29:18.832" endtime="20211223 17:29:19.482"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:18.813" endtime="20211223 17:29:19.482"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:18.520" endtime="20211223 17:29:19.483"/>
+</kw>
+<kw name="Verify Login Is Success" library="login_page">
+<arg>expMsg=${expMsg}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${invalidLogMsg}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${lpLocator.errorMsg}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${lpLocator.errorMsg}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211223 17:29:19.484" endtime="20211223 17:29:19.509"/>
+</kw>
+<msg timestamp="20211223 17:29:19.509" level="INFO">${invalidLogMsg} = True</msg>
+<status status="PASS" starttime="20211223 17:29:19.484" endtime="20211223 17:29:19.509"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${invalidLogMsg}==False</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${lpLocator.welcomeMsg}</arg>
+<arg>${MED_WAIT}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211223 17:29:19.509" endtime="20211223 17:29:19.510"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${actValue}</var>
+<arg>${invalidLogMsg}==True</arg>
+<arg>Get Text</arg>
+<arg>${lpLocator.errorMsg}</arg>
+<arg>ELSE</arg>
+<arg>Get Text</arg>
+<arg>${lpLocator.welcomeMsg}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Get Text" library="SeleniumLibrary">
+<arg>${lpLocator.errorMsg}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20211223 17:29:19.511" endtime="20211223 17:29:19.532"/>
+</kw>
+<msg timestamp="20211223 17:29:19.532" level="INFO">${actValue} = Enter your userName and password correct</msg>
+<status status="PASS" starttime="20211223 17:29:19.510" endtime="20211223 17:29:19.532"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expMsg}</arg>
+<arg>${actValue}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20211223 17:29:19.533" level="FAIL">Enter your userName and password corrects != Enter your userName and password correct</msg>
+<status status="FAIL" starttime="20211223 17:29:19.533" endtime="20211223 17:29:19.533"/>
+</kw>
+<status status="FAIL" starttime="20211223 17:29:19.483" endtime="20211223 17:29:19.534"/>
+</kw>
+<kw name="Update Order Number In Excel" library="propertyFile" type="TEARDOWN">
+<arg>TC2</arg>
+<arg>${TEST STATUS}</arg>
+<kw name="Common Teardown" library="propertyFile">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211223 17:29:19.535" endtime="20211223 17:29:21.763"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:19.535" endtime="20211223 17:29:21.764"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${dataInput}</var>
+<arg>'${result}'=='PASS'</arg>
+<arg>Set Variable</arg>
+<arg>PASS</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>FAIL</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>FAIL</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20211223 17:29:21.765" endtime="20211223 17:29:21.766"/>
+</kw>
+<msg timestamp="20211223 17:29:21.766" level="INFO">${dataInput} = FAIL</msg>
+<status status="PASS" starttime="20211223 17:29:21.764" endtime="20211223 17:29:21.766"/>
+</kw>
+<kw name="Update Exl Data" library="utilityScripts">
+<arg>sheet=${sheet}</arg>
+<arg>workbook=${workBook}</arg>
+<arg>path=${data_file}</arg>
+<arg>data=${dataInput}</arg>
+<arg>colNo=5</arg>
+<arg>testCase=${testCase}</arg>
+<status status="PASS" starttime="20211223 17:29:21.766" endtime="20211223 17:29:21.778"/>
+</kw>
+<status status="PASS" starttime="20211223 17:29:19.534" endtime="20211223 17:29:21.778"/>
+</kw>
+<tag>1</tag>
+<status status="FAIL" starttime="20211223 17:29:13.407" endtime="20211223 17:29:21.779">Enter your userName and password corrects != Enter your userName and password correct</status>
+</test>
+<status status="FAIL" starttime="20211223 17:28:31.527" endtime="20211223 17:29:21.782"/>
+</suite>
+<status status="FAIL" starttime="20211223 17:28:31.524" endtime="20211223 17:29:21.785"/>
+</suite>
+<status status="FAIL" starttime="20211223 17:28:31.500" endtime="20211223 17:29:21.790"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="1" skip="0">1</stat>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="1" skip="0" id="s1-s1" name="userLogin">Tests.userLogin</stat>
+<stat pass="1" fail="1" skip="0" id="s1-s1-s1" name="loginTest">Tests.userLogin.loginTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
